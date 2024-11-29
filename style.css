@@ -1,0 +1,148 @@
+:root {
+    --color-primary: #3E7EA6;
+    --color-secondary: #ED8A42;
+    --color-accent: #E4B020;
+    --color-h1: #3E7EA6;
+    --color-h2:#3E7EA6;
+    --color-black:#242222;
+    --color-link: #E4B020;
+    --color-white: #FFFEF9;
+    --font-header: "Londrina Solid";
+    --font-text: "Lexend";
+    --font-weight-normal: 300;
+    --font-weight-bold: 800;
+
+    @media (max-width:768px) {
+    --size-h1: 2rem;
+    --size-h2: 1.5rem;
+    --size-text: 1rem;
+    --image-size: 100%;
+    --margin: 0;
+    --body-width: 100vw;
+    --padding:1rem;
+    --padding-xs: 0.2rem;
+    --gap: 1rem;
+}
+
+    @media (min-width: 768px) {
+    --size-h1: 4rem;
+    --size-h2: 2rem;
+    --size-text: 1.5rem;
+    --margin: 7rem;
+    --image-size: 60%;
+    --body-width: 80%;
+    --padding: 4rem;
+    --padding-xs: 0.5rem;
+    --gap: 2rem;
+    }
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    background-color: var(var(--color-white));
+}
+
+body {
+    font-family:var(--font-text);
+    font-size: var(--size-text);
+    width: var(--body-width);
+    margin: 0 var(--margin);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* overflow-x: hidden; */
+    gap: var(--gap);
+}
+
+header {
+    height: 200px;
+    background-color: var(--color-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--padding);
+    margin-bottom: auto;
+    height: auto;
+}
+
+button#getRecipeButton {
+    border: 0;
+    font-family: var(--font-text);
+    padding: var(--padding-xs);
+    font-size: var(--font-text);
+    margin: auto;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-family: var(--font-header);
+    font-size: var(--size-h1);
+    color: var(--color-h1);
+    text-align: center;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    font-family: var(--font-header);
+    font-size: var(--size-h2);
+    color: var(--color-secondary);
+}
+
+p {
+    background-color: var(--color-accent);
+    font-size: var(--size-text);
+    padding: var(--padding);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-white);
+}
+
+ol {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: var(--padding);
+}
+
+li {
+    font-size: var(--size-text);
+    font-weight: var(--font-weight-normal);
+    padding: var(--padding-xs);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: var(--image-size);
+    margin: 0;
+    padding: 0;
+}
+
+#recipe {
+    gap: var(--gap);
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding)
+}
+
+a:hover {
+    opacity: 80%;
+}
+
+#mealDescription {
+    white-space: pre-wrap;
+}
+
+.subtitleContainer {
+    display: flex;
+    justify-content: space-around;
+    width: var(--body-width);
+    align-items: center;
+}
