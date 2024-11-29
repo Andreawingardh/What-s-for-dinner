@@ -37,7 +37,16 @@ fetch(url)
 const randomRecipe = getRandomRecipe.meals[0];
 console.log(randomRecipe.strMeal);
 console.log(randomRecipe.strCategory);
+console.log(randomRecipe.strArea);
+console.log(randomRecipe.strInstructions);
 
+function getIngredients(randomRecipe) {
+    for (let i = 1; i < 20; i++) {
+console.log(randomRecipe.strIngredient[i]);
+    }
+}
+
+getIngredients(randomRecipe);
 
 })
 .catch(error => {
