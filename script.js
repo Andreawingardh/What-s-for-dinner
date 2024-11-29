@@ -35,7 +35,8 @@ function getIngredients(randomRecipe) {
     console.log(error);
 })
 })
-
+const recipeContainer = document.getElementById('recipe');
+recipeContainer.style.display = 'none';
 /* Fetches the data and presents it in index.html */
 
 document.getElementById('getRecipeButton').addEventListener('click', () => {
@@ -49,6 +50,8 @@ document.getElementById('getRecipeButton').addEventListener('click', () => {
 
     /*Create variable for recipe-container */
     const recipeContainer = document.getElementById('recipe');
+    recipeContainer.style.display = 'flex';
+    recipeContainer.style.flexDirection = 'column';
 
     /* Add meal title */
     const mealTitle = document.getElementById("mealTitle");
