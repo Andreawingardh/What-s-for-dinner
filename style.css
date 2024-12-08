@@ -42,10 +42,10 @@
     box-sizing: border-box;
     margin: 0;
     border: 0;
-    background-color: var(var(--color-white));
 }
 
 body {
+    background-color: var(--color-white);
     font-family:var(--font-text);
     font-size: var(--size-text);
     width: var(--body-width);
@@ -70,7 +70,7 @@ header {
     height: auto;
 }
 
-button#getRecipeButton {
+button {
     border: 0;
     font-family: var(--font-text);
     padding: var(--padding-xs);
