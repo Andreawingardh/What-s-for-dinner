@@ -4,19 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="categories.css">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
-    <title>Random recipe generator</title>
+    <title>Randomly generate a meal by category!</title>
 </head>
 
     <header>
-        <h1>Need ideas for what to make?</h1>
+        <h1>Choose a category and get a random meal!</h1>
     </header>
     <body>
-    <section>
-    <button id="getRecipeButton">Generate Random Recipe</button>
-    <div id="recipe">
+    <!-- <div id="category-buttons">
+        <button id="display-meal-vegetarian">Vegetarian</button>
+        <button id="display-meal-chicken">Chicken</button>
+        <button id="display-meal-dessert">Dessert</button>
+    </div> -->
+    <div class="dropdown">
+        <button class="dropbtn">Choose your category</button>
+        <div class="dropdown-content">
+            <button id="display-meal-beef">Beef</button>
+            <button id="display-meal-chicken">Chicken</button>
+            <button id="display-meal-dessert">Dessert</button>
+            <button id="display-meal-lamb">Lamb</button>
+            <button id="display-meal-pasta">Pasta</button>
+            <button id="display-meal-pork">Pork</button>
+            <button id="display-meal-seafood">Seafood</button>
+            <button id="display-meal-side">Side</button>
+            <button id="display-meal-starter">Starter</button>
+            <button id="display-meal-vegan">Vegan</button>
+            <button id="display-meal-vegetarian">Vegetarian</button>
+            <button id="display-meal-breakfast">Breakfast</button>
+
+
+
+        </div>
+      </div>
+
+<!-- <div id="category-displayMeal"></div> -->
+<div id="recipe">
     <a id ="mealSource" href=""><h1 id = "mealTitle"></h1></a>
     <img id = "mealImage" src="" />
     <div class="subtitleContainer">
@@ -26,8 +50,13 @@
     <ol id="mealingredientList">
     </ol>
     <p id="mealDescription"></p>
-    </div>
-</section>
-<script src="script.js"></script>
+</div>
+
+
+<script src="script-2.js"></script>
 </body>
+<footer id="footer">
+    <p>Copyright Andrea Wingårdh 2024</p><p>This site uses the <a href="https://www.themealdb.com/">The Meal DB API</a></p>
+</footer>
+
 </html>
