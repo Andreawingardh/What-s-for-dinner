@@ -16,6 +16,7 @@
     --size-h1: 2rem;
     --size-h2: 1.5rem;
     --size-text: 1rem;
+    --size-text-xs: 0.5rem;
     --image-size: 100%;
     --margin: 0;
     --body-width: 100vw;
@@ -28,6 +29,7 @@
     --size-h1: 4rem;
     --size-h2: 2rem;
     --size-text: 1.5rem;
+    --size-text-xs: 1rem;
     --margin: 7rem;
     --image-size: 60%;
     --body-width: 80%;
@@ -68,6 +70,7 @@ header {
     padding: var(--padding);
     margin-bottom: auto;
     height: auto;
+    width:100vw;
 }
 
 button {
@@ -145,4 +148,20 @@ a:hover {
     justify-content: space-around;
     width: var(--body-width);
     align-items: center;
+}
+
+#footer {
+    height: fit-content;
+    width: 100vw;
+    display: flex;
+    flex: row;
+    margin-top: auto;
+    justify-content: space-around;
+    margin-bottom: 0;
+    background-color: var(--color-secondary);
+}
+
+#footer p, #footer a {
+    background-color: transparent;
+    font-size: var(--size-text-xs);
 }
