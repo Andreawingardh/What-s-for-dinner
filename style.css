@@ -168,13 +168,13 @@ a:hover {
     font-size: var(--size-text-xs);
 }
 
-.meal-presentation {
+/* .meal-presentation {
     width: var(--body-width);
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
     gap: var(--margin);
-}
+} */
 
  /* Dropdown Button */
  .dropbtn {
