@@ -19,7 +19,7 @@
     --size-text-xs: 0.5rem;
     --image-size: 40%;
     --margin: 1rem;
-    --body-width: 100vw;
+    --body-width: 100%;
     --padding:1.5rem;
     --padding-xs: 0.2rem;
     --gap: 1rem;
@@ -32,7 +32,7 @@
     --size-text-xs: 1rem;
     --margin: 7rem;
     --image-size: 20%;
-    --body-width: 8%;
+    --body-width: 80%;
     --padding: 4rem;
     --padding-xs: 0.5rem;
     --gap: 2rem;
@@ -44,6 +44,7 @@
     box-sizing: border-box;
     margin: 0;
     border: 0;
+    border: red solid 1px;
 }
 
 body {
@@ -104,7 +105,7 @@ p {
     padding: var(--padding);
     font-weight: var(--font-weight-normal);
     color: var(--color-white);
-    width: var(--body-width);
+    width: 100%;
 }
 
 ol {
