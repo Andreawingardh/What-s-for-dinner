@@ -104,7 +104,7 @@ p {
     padding: var(--padding);
     font-weight: var(--font-weight-normal);
     color: var(--color-white);
-    width: 60%;
+    width: var(--body-width);
 }
 
 ol {
