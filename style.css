@@ -44,7 +44,6 @@
     box-sizing: border-box;
     margin: 0;
     border: 0;
-    border: red solid 1px;
 }
 
 body {
@@ -169,14 +168,7 @@ a:hover {
     font-size: var(--size-text-xs);
 }
 
-/* .meal-presentation {
-    width: var(--body-width);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--margin);
-} */
-
+/* Due to time constraints, borrowed a dropdown menu from W3 Schools and edited some styling. */
  /* Dropdown Button */
  .dropbtn {
     background-color: var(--color-accent);
