@@ -12,8 +12,25 @@
 }
 
 
-#mealDescription {
+article#mealDescription {
     white-space: pre-wrap;
+    border-width: 2px;
+    border-radius: 10px;
+    border: 1px var(--color-accent) solid;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    position: relative;
+    padding: 1rem;
+    height: fit-content;
+}
+
+article#mealDescription p {
+    padding: 0.5rem;
+}
+
+article#mealDescription a {
+    text-align: center;
 }
 
 .subtitleContainer {
@@ -29,11 +46,10 @@
 }
 
 #mealImage {
-    position: absolute;
-    width: 100px;
-    z-index: -1;
-    top: 0;
-    left: 10%;
+    width: 6rem;
+    margin: auto;
+    display: none;
+
 }
 
 #mealTitle {
