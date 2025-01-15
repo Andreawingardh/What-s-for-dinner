@@ -133,7 +133,6 @@ img {
     width: 40%;
     margin: 0;
     padding: 0;
-    border-radius: 50%;
 
     @media (min-width: 768px) {
     width: 40%;
@@ -147,7 +146,7 @@ a:hover {
 
 article {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 1rem;
 
     @media (min-width: 768px) {
@@ -162,8 +161,16 @@ aside {
     width: fit-content;
     height: fit-content;
     margin: 0 auto;
+
+
 }
 
 header .pre{
     height: 100%;
+}
+
+aside p {
+    color: var(--color-white);
+    font-weight: 400;
+    text-align: center;
 }
