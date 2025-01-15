@@ -23,6 +23,7 @@ article#mealDescription {
     position: relative;
     padding: 1rem;
     height: fit-content;
+
 }
 
 article#mealDescription p {
@@ -46,9 +47,8 @@ article#mealDescription a {
 }
 
 #mealImage {
-    width: 6rem;
     margin: auto;
-    display: none;
+    border-radius: 10px;
 
 }
 
