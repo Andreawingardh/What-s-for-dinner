@@ -1,7 +1,11 @@
   /* Script for the second page called categories, where only a meal is displayed along with a link to the webpage. */
 
-  const recipeContainer = document.getElementById('recipe');
-recipeContainer.style.display = 'none';
+    const recipeContainer = document.getElementById('recipe');
+    recipeContainer.style.display = 'none';
+    const header = document.querySelector('header');
+    header.style.position = "absolute";
+    header.style.top = "40vh";
+    document.body.style.backgroundColor = "var(--color-secondary)";
 
   const displayMeal = () => {
     document.getElementById('dropdown-menu').addEventListener('change', () => {
@@ -25,6 +29,10 @@ recipeContainer.style.display = 'none';
                 return response.json();
             })
             .then ((getRandomRecipe) => {
+                document.querySelector('footer').style.display = "flex";
+                header.style.position = "relative";
+                header.style.top = "0";
+                document.body.style.backgroundColor = "var(--color-white)";
                 console.log(getRandomRecipe.meals[0]);
                 const randomRecipe = getRandomRecipe.meals[0];
 
@@ -49,7 +57,23 @@ recipeContainer.style.display = 'none';
 
                 /*Adds the meal description */
                 const mealDescription = document.getElementById('mealDescription');
-                mealDescription.textContent = randomRecipe.strInstructions;
+                const paragraphs = mealDescription.querySelectorAll('p');
+                paragraphs.forEach(p => p.remove());
+                let instructions = '';
+                instructions = randomRecipe.strInstructions;
+                let instructionsArray = [];
+                instructionsArray.length = 0;
+                instructionsArray = instructions.split("\r\n")
+                console.log(instructionsArray);
+                instructionsArray.forEach(element => {
+                    if(element != '') {
+                        const p = document.createElement('p');
+                    p.textContent = `${element}`;
+                    mealDescription.appendChild(p);
+                    }
+                });
+                
+                // mealDescription.textContent = randomRecipe.strInstructions;
                 
                 /*Loops through the ingredients list*/
                 function getIngredients(randomRecipe) {
@@ -92,6 +116,10 @@ recipeContainer.style.display = 'none';
                 }
                 
                 getIngredients(randomRecipe);
+
+                recipeContainer.scrollIntoView({behavior: 'smooth'});
+
+                document.getElementById('dropdown-menu').value = "Please choose a category!";
     
 
 
@@ -99,14 +127,18 @@ recipeContainer.style.display = 'none';
 
             .catch(error => {
                 console.log(error);
+                document.getElementById('dropdown-menu').value = "Please choose a category!";
             });
 
         })
 
         .catch(error => {
             console.log(error);
+            alert("Oops, this recipe didn't load. Pless try again");
+            document.getElementById('dropdown-menu').value = "Please choose a category!";
         })
     })
 }
 
 displayMeal();
+
