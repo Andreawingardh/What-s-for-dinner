@@ -1,0 +1,35 @@
+:root {
+    --color-primary: #3E7EA6;
+    --color-secondary: #192939;
+    --color-accent: #29515D;
+    --color-h1: #3E7EA6;
+    --color-h2:#3E7EA6;
+    --color-black:#242222;
+    --color-link: #E4B020;
+    --color-white: #E6EAEB;
+    --font-header: "Outfit";
+    --font-text: "Lato";
+    --font-weight-normal: 300;
+    --font-weight-bold: 500;
+
+    @media (max-width:768px) {
+    --size-h1: 2rem;
+    --size-h2: 1.5rem;
+    --size-text: 1rem;
+    --size-text-xs: 0.5rem;
+}
+
+    @media (min-width: 768px) {
+    --size-h1: 2rem;
+    --size-h2: 1.5rem;
+    --size-text: 1.2rem;
+    --size-text-xs: 1rem;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+}
+

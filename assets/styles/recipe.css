@@ -1,0 +1,41 @@
+#recipe {
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    position: relative;
+
+    @media (min-width: 768px) {
+    gap: 2rem;
+    padding: 1rem;
+    }
+}
+
+
+#mealDescription {
+    white-space: pre-wrap;
+}
+
+.subtitleContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+
+    @media (min-width: 768px) {
+    width: 100%;
+        
+    }
+}
+
+#mealImage {
+    position: absolute;
+    width: 100px;
+    z-index: -1;
+    top: 0;
+    left: 10%;
+}
+
+#mealTitle {
+    position: relative;
+}
