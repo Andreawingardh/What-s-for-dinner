@@ -1,0 +1,28 @@
+button {
+    border: 0;
+    font-family: var(--font-text);
+    font-size: var(--size-text);
+    padding: 0.2rem;
+    margin: auto;
+
+    @media (min-width: 768px) {
+    padding: 0.5rem;
+    }
+}
+
+select {
+    width: 10rem;
+    height: 4rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font: var(--font-text);
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border-radius: 5px;
+}
+
+select:focus-visible {
+    border-color: white;
+    border: 1px;
+}
