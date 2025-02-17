@@ -6,4 +6,6 @@ The app uses Javascript, along with HTML and CSS.
 ## Installation
 Clone the repository on your local machine in an appropriate folder: ``` git clone https://github.com/Andreawingardh/What-s-for-dinner.git ```
 
+
+### Note
 This app started as an assignment in fetching APIs at YRGO Higher Education Vocational School.
