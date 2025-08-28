@@ -10,19 +10,7 @@ This project was originally created as part of my web development studies and se
 
 ## 🚀 Ways to Contribute
 
-### For Beginners
-- **Fix typos or improve documentation**
-- **Enhance CSS styling and responsiveness**
-- **Add new meal categories**
-- **Improve error handling and user feedback**
-- **Add loading states and animations**
-
-### For More Experienced Contributors
-- **Implement new features** (favorites, search, meal planning)
-- **Add accessibility improvements**
-- **Optimize performance**
-- **Add unit tests**
-- **Implement offline functionality**
+Find an issue that you feel comfortable starting with. If you find a bug or a possible enhancement, please create the relevant issue and I'll get back to you!
 
 ## 🛠️ Getting Started
 
@@ -77,22 +65,7 @@ This project was originally created as part of my web development studies and se
    ```bash
    git push origin feature/your-feature-name
    ```
-5. **Open a Pull Request** on GitHub with:
-   - A clear title describing your changes
-   - A detailed description of what you've added/fixed
-   - Screenshots if you've made visual changes
-   - Any testing steps you've performed
-
-## 💡 Contribution Ideas
-
-Looking for inspiration? Here are some ideas:
-
-- **UI/UX Improvements**: Better mobile responsiveness, improved visual hierarchy
-- **New Features**: Meal favorites, dietary filters, ingredient substitutions
-- **Performance**: Image lazy loading, API caching, faster load times
-- **Accessibility**: Screen reader support, keyboard navigation, better color contrast
-- **Code Quality**: Refactor repetitive code, add error boundaries, improve documentation
-- **Testing**: Add automated tests for key functionality
+5. **Open a Pull Request** on GitHub and fill in the PR template!
 
 ## 🧪 Testing Your Changes
 
