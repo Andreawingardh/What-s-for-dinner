@@ -3,53 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="categories.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/colors.css">
+    <link rel="stylesheet" href="assets/styles/form.css">
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/typography.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/recipe.css">
+    <link rel="stylesheet" href="assets/styles/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <title>Randomly generate a meal by category!</title>
 </head>
 
-    <header>
-        <h1>Choose a category and get a random meal!</h1>
+    <header class="pre">
+        <h1>Meal Randomizer!</h1>     
+        <form class="dropdown">
+            <select id ="dropdown-menu">
+                <option valur="default">Please choose a category!</option>
+                <option id="display-meal-beef" class="dropdown-content">Beef</option>
+                <option id="display-meal-chicken">Chicken</option>
+                <option id="display-meal-dessert">Dessert</option>
+                <option id="display-meal-lamb">Lamb</option>
+                <option id="display-meal-pasta">Pasta</option>
+                <option id="display-meal-pork">Pork</option>
+                <option id="display-meal-seafood">Seafood</option>
+                <option id="display-meal-side">Side</option>
+                <option id="display-meal-starter">Starter</option>
+                <option id="display-meal-vegan">Vegan</option>
+                <option id="display-meal-vegetarian">Vegetarian</option>
+                <option id="display-meal-breakfast">Breakfast</option>
+            </select>
+        <!-- <button type="submit">Get a recipe</button> -->
+        </form>
     </header>
     <body>
-    <div class="dropdown">
-        <button class="dropbtn">Choose your category</button>
-        <div class="dropdown-content">
-            <button id="display-meal-beef">Beef</button>
-            <button id="display-meal-chicken">Chicken</button>
-            <button id="display-meal-dessert">Dessert</button>
-            <button id="display-meal-lamb">Lamb</button>
-            <button id="display-meal-pasta">Pasta</button>
-            <button id="display-meal-pork">Pork</button>
-            <button id="display-meal-seafood">Seafood</button>
-            <button id="display-meal-side">Side</button>
-            <button id="display-meal-starter">Starter</button>
-            <button id="display-meal-vegan">Vegan</button>
-            <button id="display-meal-vegetarian">Vegetarian</button>
-            <button id="display-meal-breakfast">Breakfast</button>
-        </div>
-      </div>
+
 
 <div id="recipe">
-    <img id = "mealImage" src="" />
-    <a id ="mealSource" href="">
-        <h1 id = "mealTitle"></h1>
-    </a>
+
+
+
+        
 
     <div class="subtitleContainer">
-        <h2 id = "mealCategory"></h2>
-        <h2 id ="mealCountry"></h2>
+     
     </div>
-    <ol id="mealingredientList">
-    </ol>
-    <p id="mealDescription"></p>
+
+    <article>
+        <aside>
+            <p>Ingredients</p>
+
+        <ol id="mealingredientList">
+        </aside>
+
+        </ol>
+        <article id="mealDescription">
+
+            <h1 id = "mealTitle"></h1>
+            <img id = "mealImage" src="" /> 
+
+            
+
+        </article>
+       
+    </article>
+    
+    <p>The recipes are user-generated and can contain mistakes. Please check out the <a id ="mealSource" href="">original recipe</a> to doublecheck any instructions.</p>
 </div>
 
 
-<script src="script.js"></script>
+<script src="assets/scripts/script.js"></script>
+<script src="assets/scripts/fetch.js"></script>
 </body>
-<footer id="footer">
+<footer>
     <p>Copyright Andrea Wingårdh 2024</p><p>This site uses the <a href="https://www.themealdb.com/">The Meal DB API</a></p>
 </footer>
 
