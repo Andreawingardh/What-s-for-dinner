@@ -22,7 +22,7 @@ body {
     }
 
     @media (min-width: 1077px) {
-    width: 80%;  
+    width: 80%;
     }
 }
 
@@ -42,7 +42,7 @@ header {
 
     @media (min-width: 768px) {
         padding: 1.5rem;
-        
+
     }
 }
 
@@ -83,7 +83,7 @@ h2 {
     display: flex;
     justify-content: center;
 
- 
+
 }
 p {
 
@@ -94,7 +94,7 @@ p {
     width: 100%;
 
     @media (min-width: 768px) {
-        
+
     }
 }
 
@@ -105,7 +105,7 @@ aside {
 
     @media (min-width: 768px) {
     padding: 4rem;
-        
+
     }
 }
 
@@ -116,7 +116,7 @@ li {
 
     @media (min-width: 768px) {
         padding: 0.5rem;
-        
+
     }
 }
 
@@ -136,7 +136,7 @@ img {
 
     @media (min-width: 768px) {
     width: 40%;
-        
+
     }
 }
 
@@ -173,4 +173,179 @@ aside p {
     color: var(--color-white);
     font-weight: 400;
     text-align: center;
+}
+
+.error-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    max-width: 400px;
+    min-width: 300px;
+    font-family: var(--font-text);
+    font-size: var(--size-text);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.error-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.error-popup.hide {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-in;
+}
+
+.popup-content {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-secondary);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.popup-text {
+    margin: 0;
+    font-size: var(--size-text);
+    font-family: var(--font-text);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-h1);
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.popup-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.popup-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: var(--size-text);
+    font-family: var(--font-text);
+    font-weight: var(--font-weight-normal);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.popup-btn-primary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.popup-btn-primary:hover {
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+.popup-btn-secondary {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border: 1px solid var(--color-secondary);
+}
+
+.popup-btn-secondary:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    font-weight: 400;
+}
+
+.success-popup .popup-content {
+    border-color: #00b894;
+}
+
+.success-popup .popup-btn-primary {
+    background-color: #00b894;
+}
+
+.success-popup .popup-btn-primary:hover {
+    background-color: #00a085;
+}
+
+.warning-popup .popup-content {
+    border-color: #fdcb6e;
+}
+
+.warning-popup .popup-btn-primary {
+    background-color: #fdcb6e;
+    color: var(--color-h1);
+}
+
+.warning-popup .popup-btn-primary:hover {
+    background-color: #e17055;
+    color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+    .error-popup {
+        top: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+        min-width: auto;
+    }
+
+    .popup-content {
+        padding: 1rem;
+    }
+
+    .popup-buttons {
+        flex-direction: column-reverse;
+        gap: 0.5rem;
+    }
+
+    .popup-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem;
+    }
+}
+
+@media (min-width: 1077px) {
+    .error-popup {
+        max-width: 450px;
+    }
+
+    .popup-content {
+        padding: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .error-popup {
+        transition: opacity 0.2s ease;
+        transform: none;
+    }
+
+    .error-popup.show {
+        opacity: 1;
+        transform: none;
+    }
+
+    .error-popup.hide {
+        opacity: 0;
+        transform: none;
+    }
+}
+
+.popup-btn:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.error-popup:focus-within {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }

@@ -58,7 +58,7 @@ recipeContainer.style.display = 'none';
                 /*Adds the meal description */
                 const mealDescription = document.getElementById('mealDescription');
                 mealDescription.textContent = randomRecipe.strInstructions;
-                
+
                 /*Loops through the ingredients list*/
                 function getIngredients(randomRecipe) {
 
@@ -86,7 +86,7 @@ recipeContainer.style.display = 'none';
 
                         /*Assigns the list in the HTML markup a variable*/
                         const mealingredientList = document.getElementById('mealingredientList');
-                        
+
                         /* Adds the ingredient list item content to the list item in the markup */
                         ingredientListElement.textContent = ingredient + ': ' + measure;
 
@@ -95,12 +95,12 @@ recipeContainer.style.display = 'none';
 
 
                         }
-                    }  
-                
+                    }
+
                 }
-                
+
                 getIngredients(randomRecipe);
-    
+
 
 
             })
@@ -152,5 +152,5 @@ displayMeal('Breakfast', 'display-meal-breakfast');
 //     return response.json();
 // })
 // .then((recipeDetails) => {
-// 
+//
 // })
