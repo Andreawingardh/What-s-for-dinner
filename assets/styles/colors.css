@@ -1,0 +1,9 @@
+#mealDescription {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+h2 {
+    color: var(--color-secondary);
+}
