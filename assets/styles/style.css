@@ -1,3 +1,28 @@
 
 
+dialog {
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    height: 150px;
+    left: 42%;
+    top: 50%;
+    bottom: 50%;
+    max-width: 30rem;
+    width: 100%;
+    text-align: center;
+  }
+  dialog::backdrop {
+    background: rgba(0,0,0,0.5);
+  }
+  dialog button {
+    
 
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

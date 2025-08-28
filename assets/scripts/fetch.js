@@ -134,7 +134,8 @@
 
         .catch(error => {
             console.log(error);
-            alert("Oops, this recipe didn't load. Pless try again");
+            const dialog = document.getElementById("myDialog");
+            dialog.showModal(); 
             document.getElementById('dropdown-menu').value = "Please choose a category!";
         })
     })
