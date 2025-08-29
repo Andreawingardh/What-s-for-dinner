@@ -107,8 +107,10 @@ const displayMeal = () => {
         })
         .catch(error => {
             console.log(error);
+            const dialog = document.getElementById("myDialog");
+            dialog.showModal(); 
+
             hideSpinner();
-            alert("Oops, this recipe didn't load. Please try again");
             document.getElementById('dropdown-menu').value = "Please choose a category!";
         });
     });
