@@ -48,8 +48,6 @@
                 /* Add image */
                 const mealImage = document.getElementById("mealImage");
                 mealImage.src = randomRecipe.strMealThumb;
-                // document.body.style.background = `url(${randomRecipe.strMealThumb}) lightgray 50% / cover no-repeat`;
-                // document.body.style.backgroundBlendMode = 'lighten';
 
                 /* Add meal source */
                 const mealSource = document.getElementById("mealSource");
@@ -72,8 +70,6 @@
                     mealDescription.appendChild(p);
                     }
                 });
-                
-                // mealDescription.textContent = randomRecipe.strInstructions;
                 
                 /*Loops through the ingredients list*/
                 function getIngredients(randomRecipe) {
