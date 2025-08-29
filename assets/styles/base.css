@@ -98,14 +98,91 @@ p {
     }
 }
 
-aside {
+/* Original aside styles removed - replaced with ingredients-container styles */
+
+/* Collapsible ingredients styles */
+.ingredients-container {
+    border-radius: 10px;
+    padding: 1rem;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
     background-color: var(--color-secondary);
     color: var(--color-white);
-    padding: 1.5 rem;
+}
 
-    @media (min-width: 768px) {
-    padding: 4rem;
-        
+.ingredients-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.ingredients-header:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.ingredients-header p {
+    margin: 0;
+    padding: 0;
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.arrow {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    color: var(--color-white);
+}
+
+.arrow.collapsed {
+    transform: rotate(-90deg) !important;
+}
+
+.ingredients-content {
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+.ingredients-content.collapsed {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    padding: 0 !important;
+}
+
+.ingredients-content ol {
+    margin: 0;
+    padding: 1rem 0 0 0;
+    list-style-position: inside;
+}
+
+.ingredients-content li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ingredients-content li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 767px) {
+    .ingredients-container {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .ingredients-header {
+        padding: 0.75rem;
+    }
+    
+    .ingredients-content ol {
+        padding: 0.75rem 0 0 0;
     }
 }
 
@@ -155,22 +232,10 @@ article {
     }
 }
 
-aside {
-    border-radius: 10px;
-    padding: 1rem;
-    width: fit-content;
-    height: fit-content;
-    margin: 0 auto;
-
-
-}
+/* Duplicate aside styles removed - using ingredients-container instead */
 
 header .pre{
     height: 100%;
 }
 
-aside p {
-    color: var(--color-white);
-    font-weight: 400;
-    text-align: center;
-}
+/* Old aside p styles removed - using ingredients-header p instead */

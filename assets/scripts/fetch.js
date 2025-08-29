@@ -7,6 +7,44 @@
     header.style.top = "40vh";
     document.body.style.backgroundColor = "var(--color-secondary)";
 
+    // Collapsible ingredients functionality
+    const toggleIngredients = () => {
+        const ingredientsHeader = document.getElementById('ingredients-header');
+        const ingredientsContent = document.getElementById('ingredients-content');
+        const ingredientsArrow = document.getElementById('ingredients-arrow');
+        
+        console.log('Setting up toggle ingredients:', { ingredientsHeader, ingredientsContent, ingredientsArrow });
+        
+        if (ingredientsHeader && ingredientsContent && ingredientsArrow) {
+            // Remove any existing event listeners to prevent duplicates
+            ingredientsHeader.removeEventListener('click', handleIngredientsToggle);
+            // Add the event listener
+            ingredientsHeader.addEventListener('click', handleIngredientsToggle);
+            console.log('Event listener added successfully');
+        } else {
+            console.log('Some elements not found for toggle setup');
+        }
+    };
+
+    // Handle the toggle functionality
+    const handleIngredientsToggle = () => {
+        const ingredientsContent = document.getElementById('ingredients-content');
+        const ingredientsArrow = document.getElementById('ingredients-arrow');
+        
+        console.log('Toggle clicked!', { ingredientsContent, ingredientsArrow });
+        
+        if (ingredientsContent && ingredientsArrow) {
+            ingredientsContent.classList.toggle('collapsed');
+            ingredientsArrow.classList.toggle('collapsed');
+            console.log('Classes toggled successfully');
+        } else {
+            console.log('Elements not found!');
+        }
+    };
+
+    // Initialize collapsible functionality when DOM is loaded
+    document.addEventListener('DOMContentLoaded', toggleIngredients);
+
   const displayMeal = () => {
     document.getElementById('dropdown-menu').addEventListener('change', () => {
         const category = document.getElementById('dropdown-menu').value;
@@ -116,6 +154,9 @@
                 }
                 
                 getIngredients(randomRecipe);
+
+                // Ensure collapsible functionality is available after recipe loads
+                toggleIngredients();
 
                 recipeContainer.scrollIntoView({behavior: 'smooth'});
 
