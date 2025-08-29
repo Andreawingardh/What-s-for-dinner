@@ -6,7 +6,7 @@ button {
     margin: auto;
 
     @media (min-width: 768px) {
-    padding: 0.5rem;
+        padding: 0.5rem;
     }
 }
 
@@ -22,9 +22,17 @@ select {
     border-radius: 5px;
     font-weight: 300;
     padding: 0.5rem 1.5rem;
+    transition: background-color 0.25s ease, 
+                box-shadow 0.25s ease; 
 }
 
 select:focus-visible {
-    border-color: white;
-    border: 1px;
+    outline: none;
+    border: 1px solid var(--color-primary);
+}
+
+select:hover:not(:focus) {
+    background-color: rgba(206, 175, 175, 0.015); 
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); 
+    cursor: pointer;
 }
