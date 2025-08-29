@@ -47,14 +47,6 @@ recipeContainer.style.display = 'none';
                 const mealSource = document.getElementById("mealSource");
                 mealSource.href = randomRecipe.strSource;
 
-                // /* Add meal category */
-                // const mealCategory = document.getElementById('mealCategory');
-                // mealCategory.textContent = randomRecipe.strCategory;
-
-                // /*Added meal's country of origin*/
-                // const mealCountry = document.getElementById('mealCountry');
-                // mealCountry.textContent = randomRecipe.strArea;
-
                 /*Adds the meal description */
                 const mealDescription = document.getElementById('mealDescription');
                 mealDescription.textContent = randomRecipe.strInstructions;
