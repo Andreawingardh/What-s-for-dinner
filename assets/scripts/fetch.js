@@ -19,6 +19,9 @@ function hideSpinner() {
     loadingEl.classList.remove("active");
 }
 
+let ingredientDropDownOpen = false;
+
+
 const displayMeal = () => {
     document.getElementById('dropdown-menu').addEventListener('change', () => {
         const category = document.getElementById('dropdown-menu').value;
@@ -58,6 +61,7 @@ const displayMeal = () => {
             /* Add image */
             const mealImage = document.getElementById("mealImage");
             mealImage.src = randomRecipe.strMealThumb;
+            mealImage.alt = randomRecipe.strMeal;
 
             /* Add meal source */
             const mealSource = document.getElementById("mealSource");
@@ -81,6 +85,7 @@ const displayMeal = () => {
 
             /* Loops through the ingredients list */
             function getIngredients(randomRecipe) {
+                
                 const mealingredientList = document.getElementById('mealingredientList');
                 mealingredientList.innerHTML = '';
 
@@ -99,7 +104,17 @@ const displayMeal = () => {
                 }  
             }
 
-            getIngredients(randomRecipe);
+           document.getElementById('Ingredients').addEventListener('click',()=>{
+            ingredientDropDownOpen = !ingredientDropDownOpen;
+             if(ingredientDropDownOpen){
+              getIngredients(randomRecipe);
+             }else{
+                document.getElementById('mealingredientList').innerHTML = '<div></div>';
+             }
+             
+           })
+           document.getElementById('Ingredients').style.cursor = 'pointer'
+           document.getElementById('Ingredients').title = 'All Ingredients'
 
             recipeContainer.scrollIntoView({ behavior: 'smooth' });
 
