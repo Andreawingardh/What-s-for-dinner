@@ -1,119 +1,125 @@
-/* Script for the second page called categories, where only a meal is displayed along with a link to the webpage. */
-
-const recipeContainer = document.getElementById('recipe');
-recipeContainer.style.display = 'none';
-
-const header = document.querySelector('header');
-header.style.position = "absolute";
-header.style.top = "40vh";
-
-document.body.style.backgroundColor = "var(--color-secondary)";
-
+const recipeContainer = document.getElementById("recipe");
+const header = document.querySelector("header");
+const footer = document.querySelector("footer");
 const loadingEl = document.getElementById("loading");
-loadingEl.classList.remove("active");
+const dropdown = document.getElementById("dropdown-menu");
+const dialog = document.getElementById("myDialog");
+
+const mealTitle = document.getElementById("mealTitle");
+const mealImage = document.getElementById("mealImage");
+const mealSource = document.getElementById("mealSource");
+const mealDescription = document.getElementById("mealDescription");
+const ingredientList = document.getElementById("mealingredientList");
 
 function showSpinner() {
-    loadingEl.classList.add("active");
+  loadingEl.classList.add("active");
 }
+
 function hideSpinner() {
-    loadingEl.classList.remove("active");
+  loadingEl.classList.remove("active");
 }
 
-const displayMeal = () => {
-    document.getElementById('dropdown-menu').addEventListener('change', () => {
-        const category = document.getElementById('dropdown-menu').value;
-        if (category === "default" || category === "Please choose a category!") return;
-        showSpinner();
-        recipeContainer.style.display = 'none';
-
-        fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
-        .then((response) => response.json())
-        .then((getMeal) => {
-            console.log(getMeal);
-
-            /* Creates a random ingredientKey for accessing a random meal */
-            const ingredientKey = Math.floor(Math.random() * getMeal.meals.length);
-            const generateRandomRecipe = getMeal.meals[ingredientKey];
-
-            return fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${generateRandomRecipe.idMeal}`);
-        })
-        .then((response) => response.json())
-        .then((getRandomRecipe) => {
-            document.querySelector('footer').style.display = "flex";
-            header.style.position = "relative";
-            header.style.top = "0";
-            document.body.style.backgroundColor = "var(--color-white)";
-
-            const randomRecipe = getRandomRecipe.meals[0];
-
-            /* Show recipe, hide spinner */
-            hideSpinner();
-            recipeContainer.style.display = 'flex';
-            recipeContainer.style.flexDirection = 'column';
-
-            /* Add meal title */
-            const mealTitle = document.getElementById("mealTitle");
-            mealTitle.textContent = randomRecipe.strMeal;
-
-            /* Add image */
-            const mealImage = document.getElementById("mealImage");
-            mealImage.src = randomRecipe.strMealThumb;
-
-            /* Add meal source */
-            const mealSource = document.getElementById("mealSource");
-            mealSource.href = randomRecipe.strSource;
-
-            /* Adds the meal description */
-            const mealDescription = document.getElementById('mealDescription');
-            const paragraphs = mealDescription.querySelectorAll('p');
-            paragraphs.forEach(p => p.remove());
-
-            const instructions = randomRecipe.strInstructions;
-            const instructionsArray = instructions.split("\r\n");
-
-            instructionsArray.forEach(element => {
-                if (element !== '') {
-                    const p = document.createElement('p');
-                    p.textContent = element;
-                    mealDescription.appendChild(p);
-                }
-            });
-
-            /* Loops through the ingredients list */
-            function getIngredients(randomRecipe) {
-                const mealingredientList = document.getElementById('mealingredientList');
-                mealingredientList.innerHTML = '';
-
-                for (let i = 1; i < 20; i++) {
-                    const ingredientKey = `strIngredient${i}`;
-                    const measureKey = `strMeasure${i}`;
-
-                    const ingredient = randomRecipe[ingredientKey];
-                    const measure = randomRecipe[measureKey];
-
-                    if (ingredient && ingredient.trim().length !== 0) {
-                        const ingredientListElement = document.createElement('li');
-                        ingredientListElement.textContent = ingredient + ': ' + (measure || '');
-                        mealingredientList.appendChild(ingredientListElement);
-                    }
-                }  
-            }
-
-            getIngredients(randomRecipe);
-
-            recipeContainer.scrollIntoView({ behavior: 'smooth' });
-
-            document.getElementById('dropdown-menu').value = "Please choose a category!";
-        })
-        .catch(error => {
-            console.log(error);
-            const dialog = document.getElementById("myDialog");
-            dialog.showModal(); 
-
-            hideSpinner();
-            document.getElementById('dropdown-menu').value = "Please choose a category!";
-        });
-    });
+function resetDropdown() {
+  dropdown.value = "default";
 }
 
-displayMeal();
+function resetUI() {
+  recipeContainer.style.display = "none";
+  header.classList.add("header--centered");
+  document.body.style.backgroundColor = "var(--color-secondary)";
+  footer.style.display = "none";
+  ingredientList.style.display = "block";
+}
+
+function activateUI() {
+  header.classList.remove("header--centered");
+  document.body.style.backgroundColor = "var(--color-white)";
+  footer.style.display = "flex";
+}
+
+async function fetchMealsByCategory(category) {
+  const response = await fetch(
+    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
+  );
+  if (!response.ok) throw new Error("Failed to fetch meals");
+  return response.json();
+}
+
+async function fetchMealDetails(id) {
+  const response = await fetch(
+    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+  );
+  if (!response.ok) throw new Error("Failed to fetch meal details");
+  return response.json();
+}
+
+function renderMeal(meal) {
+  mealTitle.textContent = meal.strMeal;
+  mealImage.src = meal.strMealThumb || "";
+  mealImage.alt = meal.strMeal;
+  mealSource.href = meal.strSource || "#";
+
+  mealDescription.querySelectorAll("p").forEach((p) => p.remove());
+  const instructions = meal.strInstructions?.split("\r\n") || [];
+  instructions.forEach((step) => {
+    if (step.trim()) {
+      const p = document.createElement("p");
+      p.textContent = step;
+      mealDescription.appendChild(p);
+    }
+  });
+
+  ingredientList.innerHTML = "";
+  for (let i = 1; i <= 20; i++) {
+    const ingredient = meal[`strIngredient${i}`];
+    const measure = meal[`strMeasure${i}`];
+    if (ingredient && ingredient.trim()) {
+      const li = document.createElement("li");
+      li.textContent = `${ingredient}: ${measure || ""}`;
+      ingredientList.appendChild(li);
+    }
+  }
+
+  ingredientList.style.display = "block";
+
+  recipeContainer.style.display = "flex";
+  recipeContainer.style.flexDirection = "column";
+  recipeContainer.scrollIntoView({ behavior: "smooth" });
+}
+
+async function handleCategoryChange(event) {
+  const category = event.target.value;
+  if (category === "default") return;
+
+  showSpinner();
+  resetUI();
+
+  try {
+    const mealsData = await fetchMealsByCategory(category);
+    const meals = mealsData.meals || [];
+    if (meals.length === 0) throw new Error("No meals found");
+
+    const randomMeal =
+      meals[Math.floor(Math.random() * meals.length)];
+
+    const mealData = await fetchMealDetails(randomMeal.idMeal);
+    const meal = mealData.meals?.[0];
+    if (!meal) throw new Error("Meal details missing");
+
+    activateUI();
+    renderMeal(meal);
+  } catch (error) {
+    console.error("Error fetching meal:", error);
+    dialog.showModal();
+  } finally {
+    hideSpinner();
+    resetDropdown();
+  }
+}
+
+function init() {
+  resetUI();
+  dropdown.addEventListener("change", handleCategoryChange);
+}
+
+init();
