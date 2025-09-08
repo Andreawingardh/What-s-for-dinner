@@ -206,3 +206,42 @@ aside p {
 #loading.active {
   display: inline-block;
 }
+
+/* Collapsible Ingredients Styles */
+.ingredients-header {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ingredients-header:hover {
+  opacity: 0.8;
+}
+
+.ingredients-list {
+  max-height: 1000px;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.ingredients-list.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.arrow-down {
+  transition: transform 0.3s ease;
+  font-size: 0.8em;
+  margin-left: auto;
+}
+
+.arrow-up {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+  font-size: 0.8em;
+  margin-left: auto;
+}

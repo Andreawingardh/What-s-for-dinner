@@ -117,3 +117,31 @@ const displayMeal = () => {
 }
 
 displayMeal();
+
+/* Collapsible Ingredients Functionality */
+function initializeCollapsibleIngredients() {
+    const ingredientsHeader = document.getElementById('ingredientsHeader');
+    const ingredientsList = document.getElementById('mealingredientList');
+    const arrow = document.getElementById('ingredientsArrow');
+    
+    if (ingredientsHeader && ingredientsList && arrow) {
+        ingredientsHeader.addEventListener('click', function() {
+            // Toggle the collapsed class
+            ingredientsList.classList.toggle('collapsed');
+            
+            // Toggle arrow direction
+            if (ingredientsList.classList.contains('collapsed')) {
+                arrow.classList.remove('arrow-down');
+                arrow.classList.add('arrow-up');
+                arrow.textContent = '▲';
+            } else {
+                arrow.classList.remove('arrow-up');
+                arrow.classList.add('arrow-down');
+                arrow.textContent = '▼';
+            }
+        });
+    }
+}
+
+// Initialize collapsible ingredients when the page loads
+initializeCollapsibleIngredients();
