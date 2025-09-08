@@ -3,45 +3,23 @@
 const recipeContainer = document.getElementById('recipe');
 recipeContainer.style.display = 'none';
 
-    // Collapsible ingredients functionality
-    const toggleIngredients = () => {
-        const ingredientsHeader = document.getElementById('ingredients-header');
-        const ingredientsContent = document.getElementById('ingredients-content');
-        const ingredientsArrow = document.getElementById('ingredients-arrow');
-        
-        console.log('Setting up toggle ingredients:', { ingredientsHeader, ingredientsContent, ingredientsArrow });
-        
-        if (ingredientsHeader && ingredientsContent && ingredientsArrow) {
-            // Remove any existing event listeners to prevent duplicates
-            ingredientsHeader.removeEventListener('click', handleIngredientsToggle);
-            // Add the event listener
-            ingredientsHeader.addEventListener('click', handleIngredientsToggle);
-            console.log('Event listener added successfully');
-        } else {
-            console.log('Some elements not found for toggle setup');
-        }
-    };
+const header = document.querySelector('header');
+header.style.position = "absolute";
+header.style.top = "40vh";
 
-    // Handle the toggle functionality
-    const handleIngredientsToggle = () => {
-        const ingredientsContent = document.getElementById('ingredients-content');
-        const ingredientsArrow = document.getElementById('ingredients-arrow');
-        
-        console.log('Toggle clicked!', { ingredientsContent, ingredientsArrow });
-        
-        if (ingredientsContent && ingredientsArrow) {
-            ingredientsContent.classList.toggle('collapsed');
-            ingredientsArrow.classList.toggle('collapsed');
-            console.log('Classes toggled successfully');
-        } else {
-            console.log('Elements not found!');
-        }
-    };
+document.body.style.backgroundColor = "var(--color-secondary)";
 
-    // Initialize collapsible functionality when DOM is loaded
-    document.addEventListener('DOMContentLoaded', toggleIngredients);
+const loadingEl = document.getElementById("loading");
+loadingEl.classList.remove("active");
 
-  const displayMeal = () => {
+function showSpinner() {
+    loadingEl.classList.add("active");
+}
+function hideSpinner() {
+    loadingEl.classList.remove("active");
+}
+
+const displayMeal = () => {
     document.getElementById('dropdown-menu').addEventListener('change', () => {
         const category = document.getElementById('dropdown-menu').value;
         if (category === "default" || category === "Please choose a category!") return;
@@ -121,12 +99,9 @@ recipeContainer.style.display = 'none';
                 }  
             }
 
-                getIngredients(randomRecipe);
+            getIngredients(randomRecipe);
 
-                // Ensure collapsible functionality is available after recipe loads
-                toggleIngredients();
-
-                recipeContainer.scrollIntoView({behavior: 'smooth'});
+            recipeContainer.scrollIntoView({ behavior: 'smooth' });
 
             document.getElementById('dropdown-menu').value = "Please choose a category!";
         })
