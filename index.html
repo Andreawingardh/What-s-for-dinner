@@ -17,45 +17,36 @@
     <title>Randomly generate a meal by category!</title>
 </head>
 
-    <header class="pre">
-        <h1>Meal Randomizer!</h1>     
-        <form class="dropdown">
-            <select id ="dropdown-menu">
-                <option valur="default">Please choose a category!</option>
-                <option id="display-meal-beef" class="dropdown-content">Beef</option>
-                <option id="display-meal-chicken">Chicken</option>
-                <option id="display-meal-dessert">Dessert</option>
-                <option id="display-meal-lamb">Lamb</option>
-                <option id="display-meal-pasta">Pasta</option>
-                <option id="display-meal-pork">Pork</option>
-                <option id="display-meal-seafood">Seafood</option>
-                <option id="display-meal-side">Side</option>
-                <option id="display-meal-starter">Starter</option>
-                <option id="display-meal-vegan">Vegan</option>
-                <option id="display-meal-vegetarian">Vegetarian</option>
-                <option id="display-meal-breakfast">Breakfast</option>
-            </select>
-        <!-- <button type="submit">Get a recipe</button> -->
-        </form>
-    </header>
-    <body>
-        <dialog id="myDialog">
+<header class="pre">
+    <h1>Meal Randomizer!</h1>     
+    <form class="dropdown">
+        <select id="dropdown-menu">
+            <option value="default">Please choose a category!</option>
+            <option id="display-meal-beef" class="dropdown-content">Beef</option>
+            <option id="display-meal-chicken">Chicken</option>
+            <option id="display-meal-dessert">Dessert</option>
+            <option id="display-meal-lamb">Lamb</option>
+            <option id="display-meal-pasta">Pasta</option>
+            <option id="display-meal-pork">Pork</option>
+            <option id="display-meal-seafood">Seafood</option>
+            <option id="display-meal-side">Side</option>
+            <option id="display-meal-starter">Starter</option>
+            <option id="display-meal-vegan">Vegan</option>
+            <option id="display-meal-vegetarian">Vegetarian</option>
+            <option id="display-meal-breakfast">Breakfast</option>
+        </select>
+    </form>
+</header>
+
+<body>
+          <dialog id="myDialog">
             <p>Oops, this recipe didn't load. Please try again.</p>
             <button onclick="window.location.href='/'">Retry</button>
           </dialog>
-          
-          
 
-<div id="recipe">
-
-
-
-        
-
-    <div class="subtitleContainer">
-     
+    <div id="loading" class="hidden">
+        <div class="spinner"></div>
     </div>
-
     <article>
         <aside class="ingredients-container">
             <div class="ingredients-header" id="ingredients-header">
@@ -75,19 +66,24 @@
 
             
 
+    <div id="recipe">
+        <div class="subtitleContainer"></div>
+            <article id="mealDescription">
+                <h1 id="mealTitle"></h1>
+                <img id="mealImage" src="" />
+            </article>
         </article>
-       
-    </article>
-    
-    <p>The recipes are user-generated and can contain mistakes. Please check out the <a id ="mealSource" href="">original recipe</a> to doublecheck any instructions.</p>
-</div>
 
+        <p>The recipes are user-generated and can contain mistakes. Please check out the 
+            <a id="mealSource" href="">original recipe</a> to doublecheck any instructions.</p>
+    </div>
 
-<script src="assets/scripts/script.js"></script>
-<script src="assets/scripts/fetch.js"></script>
+    <script src="assets/scripts/script.js"></script>
+    <script src="assets/scripts/fetch.js"></script>
 </body>
-<footer>
-    <p>Copyright Andrea Wingårdh 2024</p><p>This site uses the <a href="https://www.themealdb.com/">The Meal DB API</a></p>
-</footer>
 
+<footer>
+    <p>Copyright Andrea Wingårdh 2024</p>
+    <p>This site uses the <a href="https://www.themealdb.com/">The Meal DB API</a></p>
+</footer>
 </html>
